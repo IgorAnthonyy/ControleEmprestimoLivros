@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using EmprestimosLivros.Data;
 using EmprestimosLivros.Repositorios;
 using EmprestimosLivros.Repositorios.Interface;
+using EmprestimosLivros.Email;
 
 namespace EmprestimosLivros
 {
@@ -15,6 +16,7 @@ namespace EmprestimosLivros
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
             builder.Services.AddAutoMapper(typeof(LivroProfile));
+            builder.Services.AddScoped<EmailService>();
 
             builder.Services.AddDbContext<EmprestimosLivrosDBContext>(options =>
             {
