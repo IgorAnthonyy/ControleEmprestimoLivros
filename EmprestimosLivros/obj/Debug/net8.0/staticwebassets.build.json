@@ -1,11 +1,12 @@
 {
   "Version": 1,
-  "Hash": "N1xQtd7XtiTf9KX+H2VqW5iI0Mvkaavd/gojc8mddsQ=",
+  "Hash": "KnOTjRx+7AabNi/7LH/W5Q5DzuqfwtO4EpzUyTH5hk8=",
   "Source": "EmprestimosLivros",
   "BasePath": "_content/EmprestimosLivros",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [],
-  "Assets": []
+  "Assets": [],
+  "Endpoints": []
 }

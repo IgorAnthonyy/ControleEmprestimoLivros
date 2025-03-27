@@ -31,8 +31,12 @@ namespace EmprestimosLivros.Controllers
 
             EmprestimoDTOResponse emprestimoResponse = _mapper.Map<EmprestimoDTOResponse>(emprestimoCriado);
 
-            string mensagem = $"Olá, seu empréstimo do livro {emprestimoModel.Livro.Nome} foi realizado com sucesso!";
-            await _emailService.EnviarEmailAsync(emprestimoModel.Cliente.Email, "Confirmação de Empréstimo", mensagem);
+            List<string> bodyEmail = new List<string>();
+            bodyEmail.Add(emprestimoModel.Cliente.Nome);
+            bodyEmail.Add(emprestimoModel.Livro.Nome);
+            bodyEmail.Add(emprestimoModel.DataEmprestimo.ToString());
+            bodyEmail.Add(emprestimoModel.DataDevolucao.ToString());
+            await _emailService.EnviarEmailAsync(emprestimoModel.Cliente.Email, "Confirmação de Empréstimo", bodyEmail);
 
             return CreatedAtAction(nameof(CadastrarEmprestimo), new { id = emprestimoResponse.Id }, emprestimoResponse);
         }
