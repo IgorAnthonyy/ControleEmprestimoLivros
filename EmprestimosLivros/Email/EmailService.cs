@@ -9,7 +9,7 @@ namespace EmprestimosLivros.Email
         public async Task EnviarEmailAsync(string destinatario, string assunto, List<string> bodyEmail)
         {
             var email = new MimeMessage();
-            email.From.Add(new MailboxAddress("Biblioteca", "igor.maciel@sptech.school"));
+            email.From.Add(new MailboxAddress("Biblioteca", "seuemail@seuemail.com"));
             email.To.Add(new MailboxAddress("", destinatario));
             email.Subject = assunto;
 
@@ -30,7 +30,7 @@ namespace EmprestimosLivros.Email
 
             using var smtp = new SmtpClient();
             await smtp.ConnectAsync("smtp.office365.com", 587, MailKit.Security.SecureSocketOptions.StartTls);
-            await smtp.AuthenticateAsync("igor.maciel@sptech.school", "#Gf37620373888");
+            await smtp.AuthenticateAsync("seuemail@seuemail.com", "suasenha");
             await smtp.SendAsync(email);
             await smtp.DisconnectAsync(true);
         }

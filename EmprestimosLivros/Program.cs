@@ -3,6 +3,7 @@ using EmprestimosLivros.Data;
 using EmprestimosLivros.Repositorios;
 using EmprestimosLivros.Repositorios.Interface;
 using EmprestimosLivros.Email;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace EmprestimosLivros
 {
@@ -28,6 +29,16 @@ namespace EmprestimosLivros
             builder.Services.AddScoped<ILivroRepositorio, LivroRepositorio>();
 
             var app = builder.Build();
+
+            using (var scope = app.Services.CreateScope())
+            {
+                var dbContext = scope.ServiceProvider.GetRequiredService<EmprestimosLivrosDBContext>();
+
+                if (!dbContext.Database.CanConnect())
+                {
+                    dbContext.Database.Migrate();
+                }
+            }
 
             if(app.Environment.IsDevelopment())
             {
