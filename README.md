@@ -37,7 +37,7 @@ O projeto será iniciado e estará acessível na URL indicada no terminal.
 - SMTP para envio de e-mails
 
 ### Contato
-Caso tenha dúvidas ou sugestões, entre em contato pelo e-mail **seuemail@dominio.com**.
+Caso tenha dúvidas ou sugestões, entre em contato pelo e-mail **igor.anthony.iop@gmail.com**.
 
 ---
 
